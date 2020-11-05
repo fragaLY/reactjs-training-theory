@@ -1,17 +1,28 @@
-import React, {Component} from 'react';
+import {Component} from 'react';
 import './App.css';
 import Car from './Car/Car'
 
 class App extends Component {
+
+    state = {
+        cars: [
+            {name: 'Ford', year: 2002},
+            {name: 'Lincoln', year: 2003},
+            {name: 'Zaporozec', year: 2004},
+            {name: 'Mazda', year: 2005}
+        ],
+        title: 'REACTIVE CARS, YEAH!'
+    }
+
     render() {
+        const cars = this.state.cars
+
         return (
             <div className="App">
-                <h1>Cars</h1>
-                <Car name = {'Ford'} year={2018}/>
-                <Car name = {'Audi'} year={2020}/>
-                <Car name = {'Mazda'} year={2015}>
-                    <p style={{color: 'red'}}>COLOR</p>
-                </Car>
+                <h1>{this.state.title}</h1>
+                <Car name = {cars[0].name} year={cars[0].year}/>
+                <Car name = {cars[1].name} year={cars[1].year}/>
+                <Car name = {cars[2].name} year={cars[2].year}/>
             </div>
         )
     }
