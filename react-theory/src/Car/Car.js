@@ -1,6 +1,7 @@
-export default () => (
+export default props => (
     <div>
-        <p>This is a car</p>
-        <p><strong>{Math.random()}</strong></p>
+        <h1>Car</h1>
+        <p>Name: {props.name}</p>
+        <p>Year: {props.year}</p>
     </div>
 )
