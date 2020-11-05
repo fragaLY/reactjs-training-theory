@@ -9,7 +9,7 @@ class App extends Component {
 
         return (
             <div style={divStyle}>
-                <h1 style={{color: 'blue'}}>Hi world!</h1>
+                <h1 style={{color: 'blue', fontSize: '5em'}}>Hi world!</h1>
             </div>
         )
     }
