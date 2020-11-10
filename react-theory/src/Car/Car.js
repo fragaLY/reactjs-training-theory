@@ -1,11 +1,7 @@
+import './Car.css'
+
 export default props => (
-    <div style={{
-            border: '1px solid #ccc',
-            marginBottom: '10px',
-            padding: '10px',
-            boxShadow: '0 4px 5px rgba(0, 0, 0, .14)',
-            borderRadius: '5px'
-    }}>
+    <div className="Car">
         <p>Name: {props.name}</p>
         <p>Year: {props.year}</p>
         <input type="text" onChange={props.onChangeName} value={props.name}/>
