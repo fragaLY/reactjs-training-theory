@@ -15,19 +15,22 @@ class App extends Component {
         showCars: false
     }
 
-    update = (title) => {
-        this.setState({title: title})
+    changeName = (name, index) => {
+        const car = this.state.cars[index]
+        car.name = name
+        const cars = [...this.state.cars] // spread operator for duplicating the data
+        cars[index] = car
+        this.setState({ cars })
     }
 
-    toggle = () => {
+    toggle = () => { // doesn't creates its context and works with previous one
         this.setState({ showCars: !this.state.showCars})
     }
 
-    handleInput = (event) => {
-        this.setState({
-                title: event.target.value
-            }
-        )
+    delete(index) { // uses context of parent
+        let cars = [...this.state.cars] // spread operator for duplicating the data
+        cars.splice(index, 1)
+        this.setState({ cars })
     }
 
     render() {
@@ -36,18 +39,19 @@ class App extends Component {
         if (this.state.showCars) {
             cars = this.state.cars.map((car, index) => {
                 return (
-                    <Car key={index} name={car.name} year={car.year}
-                         onBuy={this.update.bind(this, car.name)}/>
+                    <Car key={index}
+                         name={car.name}
+                         year={car.year}
+                         onChangeName={ event => this.changeName(event.target.value, index)}
+                         onDelete={ this.delete.bind(this, index) }
+                    />
                 )
             })
         }
         return (
             <div className="App">
                 <h1>{this.state.title}</h1>
-                <h2>Updated at: {this.state.time}</h2>
-                <input type="text" onChange={this.handleInput}/>
-                <br/>
-                <button onClick={this.toggle}>Toggle Cars</button>
+                <button onClick={ this.toggle }>Toggle Cars</button>
                 { cars }
             </div>
         )
