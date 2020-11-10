@@ -12,11 +12,15 @@ class App extends Component {
             {name: 'Mazda', year: 2005}
         ],
         title: 'REACTIVE CARS, YEAH!',
-        time: new Date().getHours() + ':' + new Date().getMinutes() + ':' + new Date().getSeconds()
+        showCars: false
     }
 
-    update = (date) => {
-        this.setState({time: date})
+    update = (title) => {
+        this.setState({title: title})
+    }
+
+    toggle = () => {
+        this.setState({ showCars: !this.state.showCars})
     }
 
     handleInput = (event) => {
@@ -27,21 +31,24 @@ class App extends Component {
     }
 
     render() {
+        let cars = null
 
+        if (this.state.showCars) {
+            cars = this.state.cars.map((car, index) => {
+                return (
+                    <Car key={index} name={car.name} year={car.year}
+                         onBuy={this.update.bind(this, car.name)}/>
+                )
+            })
+        }
         return (
             <div className="App">
                 <h1>{this.state.title}</h1>
                 <h2>Updated at: {this.state.time}</h2>
                 <input type="text" onChange={this.handleInput}/>
-                <button onClick={this.update.bind(this, new Date().getSeconds())}>Current Time</button>
-                {
-                    this.state.cars.map((car, index) => {
-                        return (
-                            <Car key={index} name={car.name} year={car.year}
-                                 onBuy={this.update.bind(this, new Date().getMilliseconds())}/>
-                        )
-                    })
-                }
+                <br/>
+                <button onClick={this.toggle}>Toggle Cars</button>
+                { cars }
             </div>
         )
     }
