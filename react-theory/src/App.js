@@ -19,17 +19,29 @@ class App extends Component {
         this.setState({time: date})
     }
 
+    handleInput = (event) => {
+        this.setState({
+                title: event.target.value
+            }
+        )
+    }
+
     render() {
-        const cars = this.state.cars
 
         return (
             <div className="App">
                 <h1>{this.state.title}</h1>
-                <h2>Updated at: { this.state.time }</h2>
-                <button onClick={ this.update.bind(this, new Date().getSeconds()) }>Current Time</button> // the best performance
-                <Car onBuy={() => this.update(new Date().getMilliseconds())} name={cars[0].name} year={cars[0].year}/> // the worst performance
-                <Car onBuy={() => this.update(new Date().getMilliseconds())} name={cars[1].name} year={cars[1].year}/>
-                <Car onBuy={() => this.update(new Date().getMilliseconds())} name={cars[2].name} year={cars[2].year}/>
+                <h2>Updated at: {this.state.time}</h2>
+                <input type="text" onChange={this.handleInput}/>
+                <button onClick={this.update.bind(this, new Date().getSeconds())}>Current Time</button>
+                {
+                    this.state.cars.map((car, index) => {
+                        return (
+                            <Car key={index} name={car.name} year={car.year}
+                                 onBuy={this.update.bind(this, new Date().getMilliseconds())}/>
+                        )
+                    })
+                }
             </div>
         )
     }
