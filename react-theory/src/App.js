@@ -1,5 +1,5 @@
 import {Component} from 'react';
-import './App.css';
+import './App.scss';
 import Car from './Car/Car'
 
 class App extends Component {
@@ -52,7 +52,13 @@ class App extends Component {
             <div className="App">
                 <h1>{this.state.title}</h1>
                 <button onClick={ this.toggle }>Toggle Cars</button>
-                { cars }
+                <div style={{
+                    width: 400,
+                    margin: 'auto',
+                    paddingTop: '20px'
+                }}>
+                    { cars }
+                </div>
             </div>
         )
     }
