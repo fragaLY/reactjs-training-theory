@@ -4,15 +4,18 @@ import Car from './Car/Car'
 
 class App extends Component {
 
-    state = {
-        cars: [
-            {name: 'Ford', year: 2002},
-            {name: 'Lincoln', year: 2003},
-            {name: 'Zaporozec', year: 2004},
-            {name: 'Mazda', year: 2005}
-        ],
-        title: 'REACTIVE CARS, YEAH!',
-        showCars: false
+    constructor(props) {
+        super(props);
+        this.state = {
+            cars: [
+                {name: 'Ford', year: 2002},
+                {name: 'Lincoln', year: 2003},
+                {name: 'Zaporozec', year: 2004},
+                {name: 'Mazda', year: 2005}
+            ],
+            title: props.title,
+            showCars: false
+        }
     }
 
     changeName = (name, index) => {
@@ -50,7 +53,8 @@ class App extends Component {
         }
         return (
             <div className="App">
-                <h1>{this.state.title}</h1>
+                {/*<h1>{this.state.title}</h1>*/}
+                <h1>{this.props.title}</h1>
                 <button onClick={ this.toggle }>Toggle Cars</button>
                 <div style={{
                     width: 400,
