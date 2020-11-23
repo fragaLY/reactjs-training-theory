@@ -36,7 +36,18 @@ class App extends Component {
         this.setState({ cars })
     }
 
+
+    componentWillMount() {
+        console.log("Component will mount")
+    }
+
+    componentDidMount() {
+        console.log("Component did mount")
+    }
+
     render() {
+        console.log("Render")
+
         let cars = null
 
         if (this.state.showCars) {
