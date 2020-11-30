@@ -58,6 +58,7 @@ class App extends Component {
         //         hasAuthenticated: true;
         //     }
         // }
+        return null;
     }
 
     componentDidMount() {

@@ -1,5 +1,5 @@
-import Radium from "radium";
 import classes from './Car.module.scss'
+import withClass from "../HigherOrderComponent/withClass";
 
 const Car = props => {
     const inputClasses = [classes.input]
@@ -18,17 +18,8 @@ const Car = props => {
         inputClasses.push(classes.bold)
     }
 
-    const style = {
-        border: '1px solid #ccc',
-        boxShadow: '0 4px 5px rgba(0, 0, 0, .14)',
-        ':hover': {
-            border: '1px solid #aaa',
-            boxShadow: '0 4px 15px 0 rgba(0, 0, 0, .25)'
-        }
-    }
-
     return (
-        <div className={classes.Car} style={style}>
+        <>
             <p>Name: {props.name}</p>
             <p>Year: {props.year}</p>
             <input
@@ -38,8 +29,8 @@ const Car = props => {
                 className={inputClasses.join(' ')}
             />
             <button onClick={props.onDelete}>Delete</button>
-        </div>
+        </>
     )
 }
 
-export default Radium(Car)
+export default withClass(Car, classes.Car)

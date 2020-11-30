@@ -3,6 +3,14 @@
     padding: 1em;
     border-radius: 1em;
     transition: border, box-shadow .3s;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, .14);
+}
+
+.Car:hover {
+    border: 1px solid #aaa;
+    box-shadow: 0 4px 15px 0 rgba(0, 0, 0, .25);
+    cursor: pointer;
 }
 
 .input {}
