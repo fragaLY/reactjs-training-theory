@@ -12,9 +12,9 @@ class App extends Component {
         this.state = {
             cars: [
                 {name: 'Ford', year: 2002},
-                // {name: 'Lincoln', year: 2003},
-                // {name: 'Zaporozec', year: 2004},
-                // {name: 'Mazda', year: 2005}
+                {name: 'Lincoln', year: 2003},
+                {name: 'Zaporozec', year: 2004},
+                {name: 'Mazda', year: 2005}
             ],
             title: props.title,
             showCars: false

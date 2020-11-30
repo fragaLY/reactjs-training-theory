@@ -1,5 +1,6 @@
 import classes from './Car.module.scss'
 import withClass from "../HigherOrderComponent/withClass";
+import PropTypes from 'prop-types'
 
 const Car = props => {
     const inputClasses = [classes.input]
@@ -33,4 +34,10 @@ const Car = props => {
     )
 }
 
+Car.propTypes = {
+    name: PropTypes.string.isRequired,
+    year: PropTypes.number,
+    onChangeName: PropTypes.func,
+    onDelete: PropTypes.func
+}
 export default withClass(Car, classes.Car)
