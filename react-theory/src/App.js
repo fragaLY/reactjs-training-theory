@@ -103,6 +103,7 @@ class App extends Component {
                 return (
                     <ErrorBoundary key={index}>
                         <Car
+                            index={index}
                             name={car.name}
                             year={car.year}
                             onChangeName={event => this.changeName(event.target.value, index)}

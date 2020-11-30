@@ -15,7 +15,7 @@
 
 .input {}
 
-.input:active, .input:focus {
+.input:active {
     outline: none;
 }
 
@@ -30,6 +30,6 @@ $color: green;
 }
 
 .input.bold {
-    border: 0.2em solid green;
+    border: 0.2em solid deepskyblue;
     font-weight: bold;
 }
