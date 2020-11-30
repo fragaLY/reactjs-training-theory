@@ -1,7 +1,7 @@
 .Car {
-    margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 5px;
+    margin-bottom: 1em;
+    padding: 1em;
+    border-radius: 1em;
     transition: border, box-shadow .3s;
 }
 
@@ -14,14 +14,14 @@
 $color: green;
 
 .input.green {
-    border: 1px solid $color
+    border: 0.2em solid $color
 }
 
 .input.red {
-    border: 1px solid red
+    border: 0.2em solid red
 }
 
 .input.bold {
-    border: 2px solid green;
+    border: 1em solid green;
     font-weight: bold;
 }

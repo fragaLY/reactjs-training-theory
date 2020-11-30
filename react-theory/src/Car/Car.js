@@ -4,9 +4,9 @@ import classes from './Car.module.scss'
 const Car = props => {
     const inputClasses = [classes.input]
 
-    if (Math.random() > 0.7) {
-        throw new Error('Car random failed')
-    }
+    // if (Math.random() > 0.7) {
+    //     throw new Error('Car random failed')
+    // }
 
     if (props.name !== '') {
         inputClasses.push(classes.green)

@@ -2,6 +2,7 @@ import {Component} from 'react';
 import './App.scss';
 import Car from './Car/Car'
 import ErrorBoundary from "./ErrorBoundary/ErrorBoundary";
+import Counter from "./Counter/Counter";
 
 class App extends Component {
 
@@ -11,9 +12,9 @@ class App extends Component {
         this.state = {
             cars: [
                 {name: 'Ford', year: 2002},
-                {name: 'Lincoln', year: 2003},
-                {name: 'Zaporozec', year: 2004},
-                {name: 'Mazda', year: 2005}
+                // {name: 'Lincoln', year: 2003},
+                // {name: 'Zaporozec', year: 2004},
+                // {name: 'Mazda', year: 2005}
             ],
             title: props.title,
             showCars: false
@@ -112,6 +113,8 @@ class App extends Component {
             <div className="App">
                 {/*<h1>{this.state.title}</h1>*/}
                 <h1>{this.props.title}</h1>
+                <Counter/>
+                <hr/>
                 <button onClick={this.toggle}>Toggle Cars</button>
                 <div style={{
                     width: 400,
