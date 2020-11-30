@@ -7,14 +7,18 @@ export default class Counter extends Component {
     }
 
     increment = () => {
-        this.setState({
-            counter: this.state.counter + 1
+        this.setState((prevState) => {
+            return {
+                counter: prevState.counter + 1
+            }
         })
     }
 
     decrement = () => {
-        this.setState({
-            counter: this.state.counter - 1
+        this.setState((prevState) => {
+            return {
+                counter: prevState.counter - 1
+            }
         })
     }
 

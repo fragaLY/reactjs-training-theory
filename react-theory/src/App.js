@@ -30,7 +30,9 @@ class App extends Component {
     }
 
     toggle = () => { // doesn't creates its context and works with previous one
-        this.setState({showCars: !this.state.showCars})
+        this.setState((previousState) => {
+            return {showCars: !previousState.showCars}
+        })
     }
 
     delete(index) { // uses context of parent
