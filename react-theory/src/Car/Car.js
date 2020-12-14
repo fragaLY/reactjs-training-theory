@@ -1,5 +1,5 @@
 import classes from './Car.module.scss'
-import withClass from "../HigherOrderComponent/withClass";
+import withClass from "../hoc/withClass";
 import PropTypes from 'prop-types'
 import React from 'react'
 

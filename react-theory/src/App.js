@@ -3,6 +3,7 @@ import './App.scss';
 import Car from './Car/Car'
 import ErrorBoundary from "./ErrorBoundary/ErrorBoundary";
 import Counter from "./Counter/Counter";
+import {Route} from 'react-router-dom'
 
 class App extends Component {
 
@@ -115,6 +116,16 @@ class App extends Component {
         }
         return (
             <div className="App">
+                <nav className="nav">
+                    <ul>
+                        <li>
+                            <a href="/">Home</a>
+                        </li>
+                        <li>
+                            <a href="/about">About</a>
+                        </li>
+                    </ul>
+                </nav>
                 {/*<h1>{this.state.title}</h1>*/}
                 <h1>{this.props.title}</h1>
                 <Counter/>
@@ -127,6 +138,9 @@ class App extends Component {
                 }}>
                     {cars}
                 </div>
+                <Route exact path="/" render={() => <h1>Home Page</h1>}/> {/*exact helps to display it on exactly the registered path*/}
+                <Route path="/about" render={() => <h1>About Page</h1>}/>
+
             </div>
         )
     }
